@@ -93,7 +93,7 @@
         {% if post.enddate >= today %}
 
         <div class="posts">
-            <p><a href="{% url 'detail' post.id %}" class="btn">{{ post.title }}</a></p><p>{{ post.enddate.year }}-{{ post.enddate.month }}-{{ post.enddate.day }} 까지</p>
+            <p><a href="{% url 'detail' post.id %}" class="btn">{{ post.title }}</a></p><p>{{ post.enddate.year }}-{{ post.enddate.month }}-{{ post.enddate.day }} 마감</p>
         </div>
         {% endif %}
         {% endfor %}
@@ -103,7 +103,7 @@
         {% for post in edposts %}
         {% if post.enddate < today %}
         <div class="posts">
-            <p><a href="{% url 'detail' post.id %}" class="btn">{{ post.title }}</a></p><p>{{ post.enddate.year }}-{{ post.enddate.month }}-{{ post.enddate.day }} 까지</p>
+            <p><a href="{% url 'detail' post.id %}" class="btn">{{ post.title }}</a></p><p>{{ post.enddate.year }}-{{ post.enddate.month }}-{{ post.enddate.day }} 마감</p>
         </div>
         {% endif %}
         {% endfor %}
