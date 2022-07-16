@@ -1,0 +1,76 @@
+<header>
+    <style>
+        *{
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .title{
+            display: flex;
+            justify-content: left;
+            padding-left: 10%;
+            padding-top: 1%;
+            padding-bottom: 1%;
+            background-color: darkgreen;
+        }
+        .btn_title{
+            color: white; text-decoration: none;
+        }
+        .btn_title:visited{
+            color: white; text-decoration: none;
+        }
+        .post_title{
+            display: flex;
+            justify-content: center;
+            font-size: xx-large;
+            font-weight: bold;
+            padding: 3%;
+        }
+        .color_box{
+            margin-left: 10%;
+            margin-right: 10%;
+            padding: 2%;
+            background-color: rgb(255, 246, 236);
+        }
+        .date{
+            display: flex;
+            justify-content: right;
+        }
+        .post{
+            font-size: large;
+            padding: 5%;
+        }
+        .buttons{
+            display: flex;
+            font-size: small;
+            justify-content: right;
+            padding-top: 20%;
+            padding-left: 70%;
+            justify-content: space-around;
+            margin-bottom: 100%;
+        }
+        .btn{
+            text-decoration: none;
+        }
+        .btn:visited{
+            text-decoration: none;
+        }
+    </style>
+</header>
+
+
+<h1 class="title"><a href="{% url 'home' %}" class="btn_title">Work Space</a></h1>
+<div class="post_title">{{ post_detail.title }}</div>
+
+<div class="color_box">
+
+    <div class="date">작성일 : {{ post_detail.writtendate.year }}-{{ post_detail.writtendate.month }}-{{ post_detail.writtendate.day }}</div>
+    <div class="date">마감일 : {{ post_detail.enddate.year }}-{{ post_detail.enddate.month }}-{{ post_detail.enddate.day }}</div>
+
+    <div class="post">{{ post_detail.body | linebreaks}}</div>
+
+    <div class="buttons">
+    <div><a href="{% url 'update_post' post_detail.id %}" class="btn">수정하기</a></div>    
+    <div><a href="{% url 'delete_post' post_detail.id %}" class="btn">삭제하기</a></div>
+    </div>
+</div>

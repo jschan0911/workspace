@@ -1,0 +1,45 @@
+<header>
+    <style>
+        *{
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .title{
+            display: flex;
+            justify-content: left;
+            padding-left: 10%;
+            padding-top: 1%;
+            padding-bottom: 1%;
+            background-color: darkgreen;
+        }
+        .btn_title{
+            color: white; text-decoration: none;
+        }
+        .btn_title:visited{
+            color: white; text-decoration: none;
+        }
+        .table{
+            display: flex;
+            justify-content: center;
+            padding: 2%;
+        }
+        .botton{
+            display: flex;
+            justify-content:center;
+            padding-left: 50%;
+            padding-bottom: 5%;
+        }
+    </style>
+</header>
+
+<h1 class="title"><a class='btn_title', href="{% url 'home' %}">Work Space</a></h1>
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="table">
+    <table>
+        {{form.as_table}}
+    </table>
+    </div>
+    <div class="botton"><input type="submit" value="완료"></div>
+</form>

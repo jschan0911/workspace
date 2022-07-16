@@ -1,0 +1,137 @@
+<header>
+    <style>
+        *{
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .title{
+            display: flex;
+            justify-content: left;
+            padding-left: 10%;
+            padding-top: 1%;
+            padding-bottom: 1%;
+            background-color: darkgreen;
+        }
+        .btn_title{
+            color: white; text-decoration: none;
+        }
+        .btn_title:visited{
+            color: white; text-decoration: none;
+        }
+        .btn{
+            color: blue; text-decoration: none;
+        }
+        .btn:visited{
+            color: blue; text-decoration: none;
+        }
+        .btn_add{
+            color: blue; text-decoration: none;
+            display: flex;
+            justify-content: right;
+            padding-right: 5%;
+            font-size: large;
+        }
+        .btn_add:visited{
+            color: blue; text-decoration: none;
+        }
+        .list_title{
+            display: flex;
+            justify-content: center;
+            font-size: xx-large;
+            font-weight: bold;
+            padding: 3%;
+        }
+        .color_box{
+            margin-left: 10%;
+            margin-right: 10%;
+            padding: 2%;
+            background-color: rgb(255, 246, 236);
+        }
+        .lists{
+            padding: 2%;
+            display: grid;
+            grid-template-columns: 25% 25% 25% 12.5% 12.5%;
+            /* place-items: center; */
+        }
+        .grade{
+            display: flex;
+            justify-content: left;
+            font-size: larger;
+            padding: 2%;
+        }
+    </style>
+    
+</header>
+
+
+<h1 class="title"><a href="{% url 'home' %}" class="btn_title">Work Space</a></h1>
+<div class="list_title">명단</div>
+
+<div class="color_box">
+    <a href="{% url 'list_create' %}" class="btn_add">추가</a>
+
+    <p class="grade">중1</p>
+    {% for list in lists %}
+    {% if list.age == 14 %}
+    <div class="lists">
+        <div>{{list.name}}</div><div>{{list.birthday}}</div><div>{{list.phone}}</div><div><a href="{% url 'update_list' list.id %}" class="btn">수정</a></div><div><a href="{% url 'delete_list' list.id %}" class="btn">삭제</a></div>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+    <hr>
+    <p class="grade">중2</p>
+    {% for list in lists %}
+    {% if list.age == 15 %}
+    <div class="lists">
+        <div>{{list.name}}</div><div>{{list.birthday}}</div><div>{{list.phone}}</div><div><a href="{% url 'update_list' list.id %}" class="btn">수정</a></div><div><a href="{% url 'delete_list' list.id %}" class="btn">삭제</a></div>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+    <hr>
+    <p class="grade">중3</p>
+    {% for list in lists %}
+    {% if list.age == 16 %}
+    <div class="lists">
+        <div>{{list.name}}</div><div>{{list.birthday}}</div><div>{{list.phone}}</div><div><a href="{% url 'update_list' list.id %}" class="btn">수정</a></div><div><a href="{% url 'delete_list' list.id %}" class="btn">삭제</a></div>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+    <hr>
+    <p class="grade">고1</p>
+    {% for list in lists %}
+    {% if list.age == 17 %}
+    <div class="lists">
+        <div>{{list.name}}</div><div>{{list.birthday}}</div><div>{{list.phone}}</div><div><a href="{% url 'update_list' list.id %}" class="btn">수정</a></div><div><a href="{% url 'delete_list' list.id %}" class="btn">삭제</a></div>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+    <hr>
+    <p class="grade">고2</p>
+    {% for list in lists %}
+    {% if list.age == 18 %}
+    <div class="lists">
+        <div>{{list.name}}</div><div>{{list.birthday}}</div><div>{{list.phone}}</div><div><a href="{% url 'update_list' list.id %}" class="btn">수정</a></div><div><a href="{% url 'delete_list' list.id %}" class="btn">삭제</a></div>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+    <hr>
+    <p class="grade">고3</p>
+    {% for list in lists %}
+    {% if list.age == 19 %}
+    <div class="lists">
+        <div>{{list.name}}</div><div>{{list.birthday}}</div><div>{{list.phone}}</div><div><a href="{% url 'update_list' list.id %}" class="btn">수정</a></div><div><a href="{% url 'delete_list' list.id %}" class="btn">삭제</a></div>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+    {% if request.user.id == 1 %}
+    <a href="{% url 'age_up' %}">나이 +</a>
+    <a href="{% url 'age_down' %}">나이 -</a>
+    {% endif %}
+</div>

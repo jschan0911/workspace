@@ -1,0 +1,126 @@
+<header>
+    <style>
+        *{
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .title{
+            font-size: larger;
+            background-color: darkgreen;
+            color: white;
+            padding-bottom: 2%;
+        }
+        h1{
+            display: flex;
+            justify-content: center;
+            padding: 2%;
+        }
+        .buttons{
+            display: flex;
+            justify-content: space-around;
+            padding-left: 40%;
+            padding-right: 40%;
+            color: white;
+        }
+        .body{
+           
+            /* padding-left: 5%;
+            padding-right: 5%;  */
+            padding: 2%;
+            display: grid;
+            grid-template-columns: repeat(3,1fr)
+        }
+        h3{
+            display: flex;
+            justify-content: center;
+            padding-bottom: 5%;
+        }
+        .btn_title{
+            color: white; text-decoration: none;
+        }
+        .btn_title:visited{
+            color: white; text-decoration: none;
+        }
+        .btn{
+            text-decoration: none;
+        }
+        .btn:visited{
+            text-decoration: none;
+        }
+        .posts{
+            /* padding-left: 5%; */
+            padding: 5%;
+            margin: 1%;
+            display: grid;
+            /* grid-template-columns: repeat(2,1fr); */
+            grid-template-columns: 60% 40%;
+            font-size: small;
+            background-color: rgb(255, 246, 236);
+        }
+        .posts_not_enddate{
+            padding: 5%;
+            margin: 1%;
+            background-color: rgb(255, 246, 236);
+            display: grid;
+            font-size: small;
+            grid-template-columns: 1fr;
+            
+        }
+
+        
+    </style>
+</header>
+
+
+<div class="title">
+    <h1>Work Space</h1>
+    <div class="buttons">
+        
+        <a href="{% url 'create' %}" class="btn_title">새 글 작성</a>
+        <a href="{% url 'list' %}" class="btn_title">명단</a>
+        <!-- {{today}} -->
+        <!-- 알림판 (생일자 표시, 해당월 생일자 표시 당일이면 축하 매세지 띄움) -->
+        
+    </div>
+</div>
+
+<div class="body">
+
+    <div class="A">
+        <h3>진행 중인 일정</h3>
+        {% for post in ingposts %}
+        {% if post.enddate >= today %}
+
+        <div class="posts">
+            <p><a href="{% url 'detail' post.id %}" class="btn">{{ post.title }}</a></p><p>{{ post.enddate.year }}-{{ post.enddate.month }}-{{ post.enddate.day }} 까지</p>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div class="C">
+        <h3>마감된 일정</h3>
+        {% for post in edposts %}
+        {% if post.enddate < today %}
+        <div class="posts">
+            <p><a href="{% url 'detail' post.id %}" class="btn">{{ post.title }}</a></p><p>{{ post.enddate.year }}-{{ post.enddate.month }}-{{ post.enddate.day }} 까지</p>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div class="B">
+        <h3>마감일 없는 일정</h3>
+        {% for post in posts %}
+        {% if post.enddate == NULL %}
+        
+        <div class="posts_not_enddate">
+            <p><a href="{% url 'detail' post.id %}" class="btn">{{ post.title }}<a></p>
+        </div>
+
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    
+
+</div>
