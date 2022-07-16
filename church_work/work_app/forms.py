@@ -25,7 +25,7 @@ class UserForm(forms.ModelForm):
     birthday = forms.DateField(required=False, label='생일',
         widget=forms.DateInput(format=('%Y-%m-%d'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date', 'style':'font-size:15px; padding: 2%;'})
     )
-    phone = forms.CharField(label='전화번호', max_length=20,
+    phone = forms.CharField(required=False, label='전화번호', max_length=20,
         widget=forms.Textarea(attrs={'rows':'1', 'cols': '30', 'style':'font-size:15px; padding: 2%;'}))
 
     age = forms.IntegerField(label='나이',
