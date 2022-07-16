@@ -55,6 +55,10 @@ def update_list(request, list_id):
     if request.method =='POST':
         form = UserForm(request.POST)
         if form.is_valid():
+            user.name = form.cleaned_data['name']
+            user.birthday = form.cleaned_data['birthday']
+            user.phone = form.cleaned_data['phone']
+            user.age = form.cleaned_data['age']
             user.save()
             return redirect('list')
     else:
