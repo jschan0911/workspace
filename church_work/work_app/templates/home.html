@@ -6,7 +6,7 @@
             padding: 0;
         }
         .title{
-            font-size: 200px;
+            font-size: 100px;
             padding: 2%;
             padding-bottom: 0;
             display: flex;
@@ -29,7 +29,7 @@
             padding-top: 2%;
             padding-bottom: 2%;
             background-color: darkgreen;
-            font-size: 100px;
+            font-size: 40px;
         }
         .btn{
             background-color: darkgreen;
@@ -46,7 +46,7 @@
             font-weight: bold;
             display: flex;
             justify-content: space-around;
-            font-size: 80px;
+            font-size: 30px;
         }
         .btn_options{
             color: black; text-decoration: none;
@@ -56,7 +56,7 @@
         }
         .nowoption{
             font-weight:bolder;
-            font-size: 100px;
+            font-size: 40px;
         }
         .body{
             padding: 2%;
@@ -69,7 +69,7 @@
             margin: 1%;
             margin-left: 5%;
             margin-right: 5%;
-            font-size: 50px;
+            font-size: 30px;
             background-color: rgb(255, 246, 236);
         }
     </style>
@@ -80,7 +80,7 @@
 <a href="{% url 'all' %}" class="title"><p >Work Space</p></a>
 <div class="buttons">
     
-    <a href="{% url 'create' %}" class="btn">새 글 작성</a>
+    <a href="{% url 'create' %}" class="btn">글쓰기</a>
     <a href="{% url 'list' %}" class="btn">명단</a>
     <!-- {{today}} -->
     <!-- 알림판 (생일자 표시, 해당월 생일자 표시 당일이면 축하 매세지 띄움) -->
