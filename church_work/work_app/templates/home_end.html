@@ -59,7 +59,6 @@
         }
         .body{
             padding: 2%;
-            padding-top: 0;
         }
         .posts{
             display: grid;
@@ -76,7 +75,7 @@
 
 
 
-<a href="{% url 'all' %}" class="title"><p >Work Space</p></a>
+<a href="{% url 'all' %}" class="title"><p>Work Space</p></a>
 <div class="buttons">
     
     <a href="{% url 'create' %}" class="btn">새 글 작성</a>
@@ -87,15 +86,15 @@
 </div>
 
 <div class="options">
-        <p class="nowoption">진행 중인 일정</p>
-        <a href="{% url 'home_end' %}" class="btn_options"><p>마감된 일정</p></a>
-        <a href="{% url 'home_always' %}" class="btn_options"><p>상시 일정</p> </a>       
+    <a href="{% url 'home' %}" class="btn_options"><p>진행 중인 일정</p></a>
+    <p class="nowoption">마감된 일정</p>
+    <a href="{% url 'home_always' %}" class="btn_options"><p>상시 일정</p> </a>       
 </div>
 
 <div class="body">
 
-        {% for post in ingposts %}
-        {% if post.enddate >= today %}
+        {% for post in edposts %}
+        {% if post.enddate < today %}
         <div class="posts">
             <p><a href="{% url 'detail' post.id %}" class=>{{ post.title }}</a></p><p>{{ post.enddate.year }}-{{ post.enddate.month }}-{{ post.enddate.day }} 마감</p>
         </div>

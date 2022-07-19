@@ -3,12 +3,33 @@ from .models import myPost, myUser
 from .forms import PostForm, UserForm
 import datetime as dt
 
-def home(request):
+def all(request):
     ingposts = myPost.objects.filter().order_by('enddate')
     edposts = myPost.objects.filter().order_by('-enddate')
     posts = myPost.objects.filter().order_by('-writtendate')
     today = dt.datetime.now().date
-    return render(request, 'home.html', {'ingposts':ingposts, 'edposts':edposts, 'posts':posts, 'today':today})
+    return render(request, 'all.html', {'ingposts':ingposts, 'edposts':edposts, 'posts':posts, 'today':today})
+
+def home(request):
+    ingposts = myPost.objects.filter().order_by('enddate')
+    # edposts = myPost.objects.filter().order_by('-enddate')
+    # posts = myPost.objects.filter().order_by('-writtendate')
+    today = dt.datetime.now().date
+    return render(request, 'home.html', {'ingposts':ingposts, 'today':today})
+
+def home_end(request):
+    # ingposts = myPost.objects.filter().order_by('enddate')
+    edposts = myPost.objects.filter().order_by('-enddate')
+    # posts = myPost.objects.filter().order_by('-writtendate')
+    today = dt.datetime.now().date
+    return render(request, 'home_end.html', {'edposts':edposts, 'today':today})
+
+def home_always(request):
+    # ingposts = myPost.objects.filter().order_by('enddate')
+    # edposts = myPost.objects.filter().order_by('-enddate')
+    posts = myPost.objects.filter().order_by('-writtendate')
+    today = dt.datetime.now().date
+    return render(request, 'home_always.html', {'posts':posts, 'today':today})
 
 def create(request):
     if (request.method == 'POST'):
