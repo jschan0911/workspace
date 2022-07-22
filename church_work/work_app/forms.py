@@ -4,9 +4,9 @@ from .models import myPost, myUser
 
 class PostForm(forms.ModelForm):
     title = forms.CharField(label='', max_length=20,
-        widget=forms.Textarea(attrs={'rows':'1', 'cols': '30', 'style':'font-size:35px; padding: 2%;'}))
+        widget=forms.Textarea(attrs={'rows':'1', 'cols': '40', 'style':'font-size:35px; padding: 2%;'}))
     body = forms.CharField(label='', max_length=2000, 
-        widget=forms.Textarea(attrs={'rows':'20', 'cols': '30', 'style':'font-size:35px; padding: 2%;'}))
+        widget=forms.Textarea(attrs={'rows':'20', 'cols': '40', 'style':'font-size:35px; padding: 2%;'}))
     enddate = forms.DateField(required=False, label='',
         # widget=forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'})
         widget=forms.DateInput(format=('%Y-%m-%d'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date', 'style':'font-size:35px; padding: 2%;'})

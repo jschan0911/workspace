@@ -64,12 +64,14 @@
         }
         .posts{
             display: grid;
-            grid-template-columns: 70% 30%;
+            grid-template-columns: 65% 35%;
             padding: 5%;
+            padding-left: 2%;
+            padding-right: 2%;
             margin: 1%;
-            margin-left: 5%;
-            margin-right: 5%;
-            font-size: 30px;
+            /* margin-left: 5%;
+            margin-right: 5%; */
+            font-size: 35px;
             background-color: rgb(255, 246, 236);
         }
     </style>
@@ -88,8 +90,8 @@
 </div>
 
 <div class="options">
-    <a href="{% url 'home' %}" class="btn_options"><p>진행 중인 일정</p></a>
-    <a href="{% url 'home_end' %}" class="btn_options"><p>마감된 일정</p></a>
+    <a href="{% url 'home' %}" class="btn_options"><p>진행 일정</p></a>
+    <a href="{% url 'home_end' %}" class="btn_options"><p>마감 일정</p></a>
     <p class="nowoption">상시 일정</p>   
 </div>
 
